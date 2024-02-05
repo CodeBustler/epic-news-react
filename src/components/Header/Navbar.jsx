@@ -2,13 +2,18 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar({ setCategory }) {
+	const handleNavItemClick = (category) => {
+		setCategory(category);
+		document.getElementById("navbarNavAltMarkup").classList.remove("show"); // Close the navbar
+	};
+
 	return (
 		<nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
 			<div className="container-fluid">
 				<div
 					className="navbar-brand"
 					onClick={() => {
-						setCategory("general");
+						handleNavItemClick("general");
 						window.scrollTo(0, 0);
 					}}
 				>
@@ -30,41 +35,31 @@ function Navbar({ setCategory }) {
 					className="collapse navbar-collapse"
 					id="navbarNavAltMarkup"
 				>
+					{/*NAV LINKS*/}
 					<ul className="navbar-nav">
-						<li>
-							<div
-								className="nav-link"
-								onClick={() => {
-									setCategory("general");
-									console.log("object");
-								}}
-							>
-								General
-							</div>
+						<li
+							className="nav-link "
+							onClick={() => handleNavItemClick("general")}
+						>
+							General
 						</li>
-						<li>
-							<div
-								className="nav-link"
-								onClick={() => setCategory("technology")}
-							>
-								Technology
-							</div>
+						<li
+							className="nav-link"
+							onClick={() => handleNavItemClick("technology")}
+						>
+							Technology
 						</li>
-						<li>
-							<div
-								className="nav-link"
-								onClick={() => setCategory("entertainment")}
-							>
-								Entertainment
-							</div>
+						<li
+							className="nav-link"
+							onClick={() => handleNavItemClick("entertainment")}
+						>
+							Entertainment
 						</li>
-						<li>
-							<div
-								className="nav-link"
-								onClick={() => setCategory("health")}
-							>
-								Health
-							</div>
+						<li
+							className="nav-link"
+							onClick={() => handleNavItemClick("health")}
+						>
+							Health
 						</li>
 					</ul>
 				</div>
