@@ -1,4 +1,3 @@
-import moduleName from "module";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Header/Navbar";
 import Footer from "./components/Footer/Footer";
