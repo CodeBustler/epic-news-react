@@ -1,12 +1,16 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Navbar({ setCategory }) {
 	return (
-		<nav className="navbar navbar-expand-lg bg-body-tertiary">
+		<nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
 			<div className="container-fluid">
 				<div
 					className="navbar-brand"
-					onClick={() => setCategory("general")}
+					onClick={() => {
+						setCategory("general");
+						window.scrollTo(0, 0);
+					}}
 				>
 					<i className="fa-solid fa-newspaper"></i> Epic
 					<span>News</span>

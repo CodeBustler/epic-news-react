@@ -11,15 +11,21 @@ function NewsBoard({ category }) {
 		fetch(apiUrl)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
-				setNews(data.articles);
+				const existedArticles = data.articles.filter(
+					(item) => item.content !== "[Removed]",
+				);
+				console.log(data.articles);
+				setNews(existedArticles);
 			})
 			.catch((e) => console.log(e));
 	}, [category]);
 
 	return (
-		<>
-			<h3>Latest News</h3>
+		<div style={{ paddingTop: "20px" }}>
+			<h3 style={{ textTransform: "capitalize" }}>
+				Latest News :{" "}
+				<span style={{ color: "tomato" }}>{category}</span>
+			</h3>
 			<div className="news-container">
 				{news.length > 0 ? (
 					news.map((article, index) => {
@@ -43,7 +49,7 @@ function NewsBoard({ category }) {
 					</div>
 				)}
 			</div>
-		</>
+		</div>
 	);
 }
 
