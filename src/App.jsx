@@ -15,7 +15,7 @@ function App() {
   // -------------------------------------------------------------------
   // ***************** FETCHING NEWS ARTICLES  *****************
   // -------------------------------------------------------------------
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = "aa3aee0634fc497a830366c52cb6674d";
 
   useEffect(() => {
     let apiUrl = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
